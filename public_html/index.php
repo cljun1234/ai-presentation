@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+require_once __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/../src/AltoRouter.php';
 require_once __DIR__ . '/../config/database.php';
 
@@ -27,6 +28,11 @@ $router->map('GET', '/logout', 'AuthController#logout', 'logout');
 $router->map('GET', '/', 'DashboardController#index', 'dashboard');
 $router->map('GET', '/settings', 'DashboardController#settings', 'settings');
 $router->map('POST', '/domain/save', 'DashboardController#saveDomain', 'save_domain');
+
+// Slide Generator
+$router->map('GET', '/generate', 'SlideController#showGenerator', 'generator');
+$router->map('POST', '/generate', 'SlideController#processGenerator', 'generator_post');
+$router->map('GET', '/download/[*:filename]', 'SlideController#download', 'download_ppt');
 
 // Match request
 $match = $router->match();
