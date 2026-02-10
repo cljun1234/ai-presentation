@@ -1,0 +1,57 @@
+Array
+(
+    [0] => Array
+        (
+            [slide_number] => 1
+            [layout] => title_slide
+            [elements] => Array
+                (
+                    [title] => The Future of Artificial Intelligence
+                    [subtitle] => An In-depth Analysis
+                    [background_image_keyword] => technology
+                    [icon] => fa-robot
+                )
+
+        )
+
+    [1] => Array
+        (
+            [slide_number] => 2
+            [layout] => content_slide
+            [elements] => Array
+                (
+                    [title] => Key Concepts
+                    [bullets] => Array
+                        (
+                            [0] => Understanding the basics of Artificial Intelligence
+                            [1] => Why Artificial Intelligence matters in 2024
+                            [2] => Future projections
+                        )
+
+                    [background_image_keyword] => meeting
+                    [icon] => fa-lightbulb
+                )
+
+        )
+
+    [2] => Array
+        (
+            [slide_number] => 3
+            [layout] => content_slide
+            [elements] => Array
+                (
+                    [title] => Conclusion
+                    [bullets] => Array
+                        (
+                            [0] => Summary of key points
+                            [1] => Actionable takeaways
+                            [2] => Q&A Session
+                        )
+
+                    [background_image_keyword] => success
+                    [icon] => fa-check-circle
+                )
+
+        )
+
+)
