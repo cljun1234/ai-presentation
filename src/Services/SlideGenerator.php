@@ -27,7 +27,7 @@ class SlideGenerator {
         $this->httpClient = new Client();
     }
 
-    public function generate(string $topic): string {
+    public function generate(string $topic): array {
         // 1. Get AI Data
         $slidesData = $this->aiService->generateContent($topic);
 
@@ -78,7 +78,10 @@ class SlideGenerator {
         $writer = IOFactory::createWriter($ppt, 'PowerPoint2007');
         $writer->save($this->outputPath . $filename);
 
-        return $filename;
+        return [
+            'filename' => $filename,
+            'topic' => $topic
+        ];
     }
 
     private function processSlide($slide, $data) {

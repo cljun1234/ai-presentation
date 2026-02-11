@@ -21,6 +21,12 @@ class DashboardController {
 
     public function index() {
         list($pdo, $user_id, $domain) = $this->getDomainAndUser();
+
+        // Fetch presentations
+        $stmt = $pdo->prepare("SELECT * FROM presentations WHERE user_id = ? ORDER BY created_at DESC");
+        $stmt->execute([$user_id]);
+        $presentations = $stmt->fetchAll();
+
         require_once __DIR__ . '/../../views/pages/home.php';
     }
 
