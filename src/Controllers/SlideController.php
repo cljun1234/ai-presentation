@@ -26,9 +26,14 @@ class SlideController {
 
         try {
             $generator = new \Services\SlideGenerator();
-            $filename = $generator->generate($topic);
+            $result = $generator->generate($topic);
 
-            header('Location: /generate?success=' . urlencode($filename));
+            // Save to DB
+            $pdo = \Database::getInstance();
+            $stmt = $pdo->prepare("INSERT INTO presentations (user_id, topic, filename) VALUES (?, ?, ?)");
+            $stmt->execute([$_SESSION['user_id'], $topic, $result['filename']]);
+
+            header('Location: /');
             exit;
 
         } catch (\Exception $e) {
